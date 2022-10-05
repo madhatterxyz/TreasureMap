@@ -33,5 +33,10 @@ namespace TM.Domain
             }
             return entry;
         }
+
+        public string[,] Render(string[] entries)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

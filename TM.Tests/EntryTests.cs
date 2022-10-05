@@ -106,5 +106,31 @@ namespace TM.Tests
             //Assert
             Assert.Equal(2, actualResult.Stock);
         }
+
+        [Fact]
+        public void MultipleEntries_Returns_FilledMap()
+        {
+            //Arrange
+            EntryDomain domain = new EntryDomain();
+            string[] entries = new string[]
+            {
+                "C - 3 - 4",
+                "M - 1 - 1",
+                "M - 2 - 2",
+                "T - 0 - 3 - 2",
+                "T - 1 - 3 - 1"
+            };
+            string[,] expectedResult = new string[,]
+            {
+                {".",".","." },
+                {".","M","." },
+                {".",".","M" },
+                {"T;2","T;1","." }
+            };
+            //Act
+            string[,] actualResult = domain.Render(entries);
+            //Assert
+            Assert.Equal(expectedResult, actualResult);
+        }
     }
 }
