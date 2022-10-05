@@ -2,9 +2,10 @@
 {
     public class MapDomain
     {
-        public bool IsValid(string v)
+        public bool IsValid(string mapEntries)
         {
-            throw new NotImplementedException();
+            string[] entries = mapEntries.Split(" - ");
+            return entries.Length == 3 && entries[0].Equals("C") ;
         }
     }
 }
