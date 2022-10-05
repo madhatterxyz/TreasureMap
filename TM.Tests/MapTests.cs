@@ -25,5 +25,15 @@ namespace TM.Tests
             //Assert
             Assert.True(actualResult);
         }
+        [Fact]
+        public void TreasureParameters_IsValid_True()
+        {
+            //Arrange
+            MapDomain domain = new MapDomain();
+            //Act
+            bool actualResult = domain.IsValid("T - 0 - 3 - 2");
+            //Assert
+            Assert.True(actualResult);
+        }
     }
 }
