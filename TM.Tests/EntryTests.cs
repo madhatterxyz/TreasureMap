@@ -23,7 +23,7 @@ namespace TM.Tests
             //Act
             Map actualResult = (Map)domain.Parse("C - 3 - 4");
             //Assert
-            Assert.Equal(3,actualResult.Width);
+            Assert.Equal(3, actualResult.Width);
         }
         [Fact]
         public void MapHeigthProperties_Equals_4()
@@ -122,10 +122,10 @@ namespace TM.Tests
             };
             string[,] expectedResult = new string[,]
             {
-                {".",".","." },
-                {".","M","." },
-                {".",".","M" },
-                {"T;2","T;1","." }
+                {null,null,null },
+                {null,"M",null },
+                {null,null,"M" },
+                {"T;2","T;1",null }
             };
             //Act
             string[,] actualResult = domain.Render(entries);

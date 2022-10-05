@@ -36,7 +36,29 @@ namespace TM.Domain
 
         public string[,] Render(string[] entries)
         {
-            throw new NotImplementedException();
+            List<Entry> entriesList = new List<Entry>();
+            foreach (string entry in entries)
+            {
+                entriesList.Add(Parse(entry));
+            }
+            if (entriesList.First() is not Map)
+                throw new NotImplementedException();
+            Map map = (Map)entriesList.First();
+            string[,] result = new string[map.Height, map.Width];
+            foreach (Entry entry in entriesList)
+            {
+                switch (entry)
+                {
+                    case Mountain m:
+                        result[m.Coordinates.PositionY, m.Coordinates.PositionX] = "M";
+                        break;
+                    case Treasure t:
+                        result[t.Coordinates.PositionY, t.Coordinates.PositionX] = $"T;{t.Stock}";
+                        break;
+                    default: break;
+                }
+            }
+            return result;
         }
     }
 }
