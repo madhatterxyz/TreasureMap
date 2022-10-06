@@ -71,5 +71,10 @@ namespace TM.Domain
             finalRenderedMap[currentAdventurerCoordinates.PositionY, currentAdventurerCoordinates.PositionX] = "A";
             return finalRenderedMap;
         }
+
+        public string[] Travel(string[] entries)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

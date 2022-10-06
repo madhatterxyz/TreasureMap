@@ -40,5 +40,33 @@ namespace TM.Tests
             //Assert
             Assert.Equal(OrientationEnum.N, orientation2);
         }
+        [Fact]
+        public void Adventurer_Can_Collect_Treasures()
+        {
+            //Arrange
+            AdventurerDomain domain = new AdventurerDomain();
+
+            string[] expectedResult = new string[]
+            {
+                "C - 3 - 4",
+                "M - 1 - 0",
+                "M - 2 - 1",
+                "T - 1 - 3 - 2",
+                "A - Lara - 0 - 3 - S - 3"
+            };
+            string[] entries = new string[]
+            {
+                "C - 3 - 4",
+                "M - 1 - 0",
+                "M - 2 - 1",
+                "T - 0 - 3 - 2",
+                "T - 1 - 3 - 3",
+                "A - Lara - 1 - 1 - S - AADADAGGA"
+            };
+            //Act
+            string[] actualResult = domain.Travel(entries);
+            //Assert
+            Assert.Equal(expectedResult, actualResult);
+        }
     }
 }
